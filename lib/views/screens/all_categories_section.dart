@@ -16,7 +16,7 @@ class AllCategoriesSection extends StatelessWidget {
           padding: EdgeInsets.all(8.0),
           child: Text('Categories'),
         ),
-        const SizedBox(height: 15),
+        // const SizedBox(height: 5),
         BlocBuilder<MealCategoryBloc, MealCategoryState>(
           builder: (context, state) {
             if (state is MealCategoryLoadingState) {

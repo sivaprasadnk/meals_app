@@ -1,7 +1,7 @@
 import 'package:meals_app/domain/entities/meal.dart';
 
-class MealModel extends Meal {
-  MealModel({
+class MealByCategoryModel extends Meal {
+  MealByCategoryModel({
     required super.idMeal,
     required super.strMeal,
     required super.strCategory,
@@ -14,24 +14,21 @@ class MealModel extends Meal {
     required super.ingredients,
   });
 
-  factory MealModel.fromJson(Map<String, dynamic> json) {
+  factory MealByCategoryModel.fromJson(Map<String, dynamic> json) {
     final ingredients = <String, String>{};
-    if (json.containsKey('strIngredient')) {
-      for (int i = 1; i <= 20; i++) {
-        final ingredient = json['strIngredient$i'];
-        final measure = json['strMeasure$i'];
-        if (ingredient != null && ingredient.isNotEmpty) {
-          ingredients[ingredient] = measure ?? '';
-        }
+    for (int i = 1; i <= 20; i++) {
+      final ingredient = json['strIngredient$i'];
+      final measure = json['strMeasure$i'];
+      if (ingredient != null && ingredient.isNotEmpty) {
+        ingredients[ingredient] = measure ?? '';
       }
     }
-    return MealModel(
+    return MealByCategoryModel(
       idMeal: json['idMeal'],
       strMeal: json['strMeal'],
-      strCategory: json.containsKey('strCategory') ? json['strCategory'] : "",
-      strArea: json.containsKey('strArea') ? json['strArea'] : "",
-      strInstructions:
-          json.containsKey('strInstructions') ? json['strInstructions'] : "",
+      strCategory: json['strCategory'],
+      strArea: json['strArea'],
+      strInstructions: json['strInstructions'],
       strMealThumb: json['strMealThumb'],
       strTags: json['strTags'],
       strYoutube: json['strYoutube'],

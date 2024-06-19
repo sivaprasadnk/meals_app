@@ -30,4 +30,14 @@ class MealRemoteDataSource {
       throw Exception('Failed to load meal catrgories');
     }
   }
+
+  Future<Map<String, dynamic>> getMealsByCategory(String category) async {
+    var url = "$baseUrl$mealsByCategoryEndPoint?c=$category";
+    final response = await client.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      return json.decode(response.body);
+    } else {
+      throw Exception('Failed to load meal');
+    }
+  }
 }

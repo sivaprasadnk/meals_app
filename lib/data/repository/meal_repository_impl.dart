@@ -1,6 +1,7 @@
 import 'package:meals_app/data/data_sources/meal_remote_data_source.dart';
 import 'package:meals_app/data/models/meal_category_model.dart';
 import 'package:meals_app/data/models/meal_model.dart';
+import 'package:meals_app/domain/entities/meal.dart';
 import 'package:meals_app/domain/repository/meal_repository.dart';
 
 class MealRepositoryImpl implements MealRepository {
@@ -19,6 +20,14 @@ class MealRepositoryImpl implements MealRepository {
     final data = await remoteDataSource.getMealCategories();
     return (data['categories'] as List)
         .map((e) => MealCategoryModel.fromJson(e))
+        .toList();
+  }
+
+  @override
+  Future<List<Meal>> getMealsByCategory(String category) async {
+    final mealData = await remoteDataSource.getMealsByCategory(category);
+    return (mealData['meals'] as List)
+        .map((e) => MealModel.fromJson(e))
         .toList();
   }
 }
