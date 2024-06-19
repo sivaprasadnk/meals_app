@@ -18,7 +18,31 @@ class MealWidget extends StatelessWidget {
             style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8.0),
-          Image.network(meal.strMealThumb!),
+          Image.network(
+            meal.strMealThumb!,
+            height: 200,
+            frameBuilder: (BuildContext context, Widget child, int? frame,
+                bool? wasSynchronouslyLoaded) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: child,
+              );
+            },
+            loadingBuilder: (BuildContext context, Widget child,
+                ImageChunkEvent? loadingProgress) {
+              if (loadingProgress == null) {
+                return child;
+              }
+              return Center(
+                child: CircularProgressIndicator(
+                  value: loadingProgress.expectedTotalBytes != null
+                      ? loadingProgress.cumulativeBytesLoaded /
+                          loadingProgress.expectedTotalBytes!
+                      : null,
+                ),
+              );
+            },
+          ),
           const SizedBox(height: 8.0),
           Text(
             'Category: ${meal.strCategory}',
