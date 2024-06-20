@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:meals_app/data/data_sources/meal_remote_data_source.dart';
 import 'package:meals_app/data/models/meal_category_model.dart';
 import 'package:meals_app/data/models/meal_model.dart';
@@ -26,6 +27,7 @@ class MealRepositoryImpl implements MealRepository {
   @override
   Future<List<Meal>> getMealsByCategory(String category) async {
     final mealData = await remoteDataSource.getMealsByCategory(category);
+    debugPrint('@@ response :${(mealData['meals'] as List).first}');
     return (mealData['meals'] as List)
         .map((e) => MealModel.fromJson(e))
         .toList();

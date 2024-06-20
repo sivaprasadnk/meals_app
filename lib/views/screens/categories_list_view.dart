@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meals_app/domain/entities/meal_category.dart';
+import 'package:meals_app/views/bloc/meals_by_category/meals_by_category_bloc.dart';
 
 class CategoriesListView extends StatelessWidget {
   const CategoriesListView({super.key, required this.categories});
@@ -50,7 +52,15 @@ class _HoverCategoryItemState extends State<HoverCategoryItem> {
         },
         child: GestureDetector(
           onTap: () {
-            
+            // final MealRemoteDataSource dataSource =
+            //     MealRemoteDataSource(http.Client());
+            // final MealRepositoryImpl repository =
+            //     MealRepositoryImpl(dataSource);
+            // final GetMealsByCategory getMealsByCategory =
+            //     GetMealsByCategory(repository);
+            context
+                .read<MealsByCategoryBloc>()
+                .add(FetchMealsByCategory(widget.category.strCategory));
           },
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
