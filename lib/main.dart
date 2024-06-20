@@ -50,10 +50,7 @@ class MealsApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: HomeScreen(
-          getRandomMeal: getRandomMeal,
-          getMealCategories: getMealCategories,
-        ),
+        home: const HomeScreen(),
       ),
     );
   }

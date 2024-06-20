@@ -26,7 +26,7 @@ class HoverCategoryItem extends StatefulWidget {
   const HoverCategoryItem({super.key, required this.category});
 
   @override
-  _HoverCategoryItemState createState() => _HoverCategoryItemState();
+  State<HoverCategoryItem> createState() => _HoverCategoryItemState();
 }
 
 class _HoverCategoryItemState extends State<HoverCategoryItem> {
@@ -48,19 +48,24 @@ class _HoverCategoryItemState extends State<HoverCategoryItem> {
             _isHovered = false;
           });
         },
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          width: 120,
-          height: 30,
-          decoration: BoxDecoration(
-            color: _isHovered ? Colors.blue.shade100 : Colors.white,
-            border: Border.all(
-              color: Colors.black,
+        child: GestureDetector(
+          onTap: () {
+            
+          },
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            width: 120,
+            height: 30,
+            decoration: BoxDecoration(
+              color: _isHovered ? Colors.blue.shade100 : Colors.white,
+              border: Border.all(
+                color: Colors.black,
+              ),
+              borderRadius: BorderRadius.circular(12),
             ),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Center(
-            child: Text(widget.category.strCategory),
+            child: Center(
+              child: Text(widget.category.strCategory),
+            ),
           ),
         ),
       ),
