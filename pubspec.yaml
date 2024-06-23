@@ -41,7 +41,8 @@ dependencies:
   cached_network_image: ^3.3.1
   shimmer: ^3.0.0
   equatable: ^2.0.5
-  get:
+  # get:
+  flutter_riverpod: ^2.5.1
 
 dev_dependencies:
   flutter_test:
