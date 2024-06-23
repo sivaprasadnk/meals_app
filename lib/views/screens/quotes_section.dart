@@ -7,7 +7,7 @@ class QuotesSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final randomQuoteAsyncValue = ref.watch(randomQuoteProvider);
+    final randomQuoteAsyncValue = ref.watch(randomQuote);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
@@ -16,7 +16,7 @@ class QuotesSection extends ConsumerWidget {
         children: [
           randomQuoteAsyncValue.when(
             data: (data) {
-              var quot = '" ${data.content} "';
+              var quot = '" ${data!.content} "';
               var auth = "- ${data.author}";
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
