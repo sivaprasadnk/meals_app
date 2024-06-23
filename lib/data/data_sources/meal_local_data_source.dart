@@ -6,8 +6,8 @@ class MealLocalDataSource {
   final Box<MealHiveModel> mealBox;
   final Box<MealCategoryHiveModel> categoryBox;
   MealLocalDataSource(
-    this.categoryBox,
     this.mealBox,
+    this.categoryBox,
   );
 
   Future<MealHiveModel?> getCachedRandomMeal() async {
