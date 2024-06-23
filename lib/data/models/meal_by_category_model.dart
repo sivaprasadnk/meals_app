@@ -10,7 +10,7 @@ class MealByCategoryModel extends Meal {
     required super.strMealThumb,
     required super.strTags,
     required super.strYoutube,
-    required super.strSource,
+    // required super.strSource,
     required super.ingredients,
   });
 
@@ -32,7 +32,7 @@ class MealByCategoryModel extends Meal {
       strMealThumb: json['strMealThumb'],
       strTags: json['strTags'],
       strYoutube: json['strYoutube'],
-      strSource: json['strSource'],
+      // strSource: json['strSource'],
       ingredients: ingredients,
     );
   }

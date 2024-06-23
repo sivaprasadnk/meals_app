@@ -19,6 +19,10 @@ class MealHiveModel extends HiveObject {
   String strMealThumb;
   @HiveField(6)
   String strTags;
+  @HiveField(7)
+  String strYoutube;
+  @HiveField(8)
+  Map<String, String> ingredients;
 
   MealHiveModel({
     required this.idMeal,
@@ -28,5 +32,7 @@ class MealHiveModel extends HiveObject {
     required this.strInstructions,
     required this.strMealThumb,
     required this.strTags,
+    required this.strYoutube,
+    required this.ingredients,
   });
 }

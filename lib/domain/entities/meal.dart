@@ -7,7 +7,7 @@ class Meal {
   final String? strMealThumb;
   final String? strTags;
   final String? strYoutube;
-  final String? strSource;
+  // final String? strSource;
   final Map<String, String>? ingredients;
 
   Meal({
@@ -19,7 +19,7 @@ class Meal {
     required this.strMealThumb,
     required this.strTags,
     required this.strYoutube,
-    required this.strSource,
+    // required this.strSource,
     required this.ingredients,
   });
 }

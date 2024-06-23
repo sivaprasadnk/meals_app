@@ -24,13 +24,15 @@ class MealHiveModelAdapter extends TypeAdapter<MealHiveModel> {
       strInstructions: fields[4] as String,
       strMealThumb: fields[5] as String,
       strTags: fields[6] as String,
+      strYoutube: fields[7] as String,
+      ingredients: (fields[8] as Map).cast<String, String>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, MealHiveModel obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(9)
       ..writeByte(0)
       ..write(obj.idMeal)
       ..writeByte(1)
@@ -44,7 +46,11 @@ class MealHiveModelAdapter extends TypeAdapter<MealHiveModel> {
       ..writeByte(5)
       ..write(obj.strMealThumb)
       ..writeByte(6)
-      ..write(obj.strTags);
+      ..write(obj.strTags)
+      ..writeByte(7)
+      ..write(obj.strYoutube)
+      ..writeByte(8)
+      ..write(obj.ingredients);
   }
 
   @override

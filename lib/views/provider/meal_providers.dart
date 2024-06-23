@@ -36,7 +36,7 @@ final randomMealProvider = Provider<GetRandomMeal>((ref) {
   return GetRandomMeal(ref.watch(mealRepositoryProvider));
 });
 
-final randomMeal = FutureProvider<Meal>((ref) async {
+final randomMeal = FutureProvider<Meal?>((ref) async {
   return ref.watch(randomMealProvider).execute();
 });
 
