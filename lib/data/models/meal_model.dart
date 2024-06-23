@@ -1,5 +1,10 @@
 import 'package:meals_app/domain/entities/meal.dart';
 
+// MealModel mealModelFromJson(String str) => MealModel.fromJson(json.decode(str));
+
+// String mealModelToJson(MealModel data) => json.encode(data.toJson());
+
+
 class MealModel extends Meal {
   MealModel({
     required super.idMeal,
@@ -16,7 +21,7 @@ class MealModel extends Meal {
 
   factory MealModel.fromJson(Map<String, dynamic> json) {
     final ingredients = <String, String>{};
-    if (json.containsKey('strIngredient')) {
+    // if (json.containsKey('strIngredient')) {
       for (int i = 1; i <= 20; i++) {
         final ingredient = json['strIngredient$i'];
         final measure = json['strMeasure$i'];
@@ -24,7 +29,7 @@ class MealModel extends Meal {
           ingredients[ingredient] = measure ?? '';
         }
       }
-    }
+    // }
     return MealModel(
       idMeal: json['idMeal'],
       strMeal: json['strMeal'],
